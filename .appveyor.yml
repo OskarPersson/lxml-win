@@ -16,9 +16,10 @@ platform:
 
 install:
   - cmd: git clone https://github.com/mhils/libxml2-win-binaries
+  - cmd: cd libxml2-win-binaries
+  - cmd: git submodule update --init --recursive
   - ps: install-module pscx -scope CurrentUser
   - ps: Find-Package pscx | ? ProviderName -eq PSModule | Install-Package -Force
-  - ps: cd libxml2-win-binaries
   - ps: .\build.ps1 -x64:$true -vs2008:$false
   
   - "C:\\Python%PYTHON%-x64\\python.exe -m pip install lxml"
