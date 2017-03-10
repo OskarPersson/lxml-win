@@ -1,0 +1,26 @@
+environment:
+
+  matrix:
+
+    - PYTHON: "27"
+
+    - PYTHON: "34"
+
+    - PYTHON: "35"
+    
+    - PYTHON: "36"
+    
+
+platform:
+  - x64
+
+install:
+  - cmd: git clone https://github.com/mhils/libxml2-win-binaries
+  - ps: >-
+      Set-ExecutionPolicy remotesigned
+      Find-Package pscx | ? ProviderName -eq PSModule | Install-Package -Force
+      cd libxml2-win-binaries
+      .\build.ps1 -x64:$true -vs2008:$false
+  - "C:\\Python%PYTHON%-x64\\python.exe -m pip install lxml"
+
+build: off
