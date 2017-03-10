@@ -16,6 +16,7 @@ platform:
 
 install:
   - cmd: git clone https://github.com/mhils/libxml2-win-binaries
+  - ps: install-module pscx -scope CurrentUser
   - ps: >-
       Set-ExecutionPolicy remotesigned
       
