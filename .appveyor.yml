@@ -15,15 +15,7 @@ platform:
   - x64
 
 install:
-  - cmd: git clone https://github.com/lxml/lxml
-  - cmd: cd lxml
-  - cmd: SET PATH=C:\\Python%PYTHON%;c:\\Python%PYTHON%\\scripts;%PATH%
-  - cmd: python -m pip.__main__ install -U pip wheel setuptools
-  - cmd: pip install -r requirements.txt --install-option="--no-cython-compile"
-
-  - cmd: python -u setup.py clean
-  - cmd: python -u setup.py bdist_wheel --static-deps
-  
+  - nuget install libxml2 libxslt
   - cmd: python -m pip install lxml
 
 build: off
