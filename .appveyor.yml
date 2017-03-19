@@ -15,7 +15,6 @@ platform:
   - x64
 
 install:
-  - nuget install libxml2 libxslt
   - cmd: python -m pip install lxml
 
 build: off
