@@ -16,6 +16,8 @@ platform:
 
 install:
   - cmd: SET PATH=C:\\Python%PYTHON%;c:\\Python%PYTHON%\\scripts;%PATH%
+  - nuget install libxml2
+  - nuget install libxslt
   - cmd: python -m pip install lxml
 
 build: off
