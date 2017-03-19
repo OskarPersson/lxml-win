@@ -2,19 +2,20 @@ environment:
 
   matrix:
 
-    - PYTHON: "27"
+    - PYTHON: "27-x64"
 
-    - PYTHON: "34"
+    - PYTHON: "34-x64"
 
-    - PYTHON: "35"
+    - PYTHON: "35-x64"
     
-    - PYTHON: "36"
+    - PYTHON: "36-x64"
     
 image: Visual Studio 2015
 platform:
   - x64
 
 install:
+  - cmd: SET PATH=C:\\Python%PYTHON%;c:\\Python%PYTHON%\\scripts;%PATH%
   - cmd: python -m pip install lxml
 
 build: off
